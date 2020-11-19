@@ -38,6 +38,9 @@ function keyPressed() {
     snake.setDir(0, 1);
   } else if (keyCode === UP_ARROW) {
     snake.setDir(0, -1);
+    else if (keyCode === Space){
+    snake.endGame
+    }
   } 
 
   function preload(){
