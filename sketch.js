@@ -62,12 +62,6 @@ function draw() {
   if (snake.eat(food)) {
     foodLocation();
 
-    gameState = PLAY();
-    
-    if (gameState === PLAY){
-      gs1Sound.play();
-    }
-
   }
   snake.update();
   snake.show();
