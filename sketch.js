@@ -12,9 +12,6 @@ let w;
 let h;
 
 var jumpSound
-var gs1Sound
-var PLAY = 1
-var gamestate = PLAY
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
@@ -32,12 +29,6 @@ function foodLocation() {
 
 }
 
-function preload(){
-  jumpSound = loadSound("jump.mp3");
-  gs1Sound = loadSound("gs1.mp3");
-}
-
-
 function keyPressed() {
   if (keyCode === LEFT_ARROW) {
     snake.setDir(-1, 0);
@@ -47,34 +38,30 @@ function keyPressed() {
     snake.setDir(0, 1);
   } else if (keyCode === UP_ARROW) {
     snake.setDir(0, -1);
-  } else if (key == ' ') {
-    snake.grow();
-  }
+  } 
 
+  function preload(){
+  jumpSound = loadSound("jump.mp3");
+  }
 
 }
 
 function draw() {
-
   scale(rez);
-
   background("green");
   if (snake.eat(food)) {
     foodLocation();
-
   }
   snake.update();
   snake.show();
 
-       
 
   if (snake.endGame()) {
+    print("END GAME"); 
+    jumpSound.play();
     background(255, 0, 0);
-    print("END GAME");
-     jumpSound.play();
     noLoop();
   }
-
 
   noStroke();
   fill(255, 0, 0);
