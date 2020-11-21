@@ -49,7 +49,6 @@ function keyPressed() {
 function draw() {
   scale(rez);
   background("green");
-  jumpSound.play();
   if (snake.eat(food)) {
     foodLocation();
   }
@@ -60,6 +59,7 @@ function draw() {
   if (snake.endGame()) {
     print("END GAME");
     background(255, 0, 0);
+    jumpSound.play();
     noLoop();
   }
 
