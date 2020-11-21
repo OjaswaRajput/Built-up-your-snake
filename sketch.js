@@ -38,9 +38,6 @@ function keyPressed() {
     snake.setDir(0, 1);
   } else if (keyCode === UP_ARROW) {
     snake.setDir(0, -1);
-    else if (keyCode === Space){
-    snake.endGame
-    }
   } 
 
   function preload(){
@@ -52,16 +49,16 @@ function keyPressed() {
 function draw() {
   scale(rez);
   background("green");
+  jumpSound.play();
   if (snake.eat(food)) {
     foodLocation();
   }
-    snake.update();
+  snake.update();
   snake.show();
 
 
   if (snake.endGame()) {
-    print("END GAME"); 
-    jumpSound.play();
+    print("END GAME");
     background(255, 0, 0);
     noLoop();
   }
