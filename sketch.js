@@ -54,10 +54,9 @@ function draw() {
   background("green");
   if (snake.eat(food)) {
     foodLocation();
-  snake.update();
-  snake.show();
   }
-  
+    snake.update();
+  snake.show();
 
 
   if (snake.endGame()) {
